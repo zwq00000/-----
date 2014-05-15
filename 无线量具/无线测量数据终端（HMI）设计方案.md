@@ -13,11 +13,13 @@
  
  b. 测量任务
  测量任务由 **人、机、料、法、环** 五部分构成。
-  - 人 测量人员（工号、部门、班组、姓名等）
-  - 机 测量工具（量具）
-  - 料 被测工件信息(零件号、品名、图号、批号）
-  - 法 根据生产工艺要求制定的测量标准（测量位置、采样数量、公差范围、量具类型）
-  - 环 应用环境（时间、工位等）
+ 
+  - **人** 测量人员（工号、部门、班组、姓名等）
+  - **机** 测量工具（量具）
+  - **料** 被测工件信息(零件号、品名、图号、批号）
+  - **法** 根据生产工艺要求制定的测量标准（测量位置、采样数量、公差范围、量具类型）
+  - **环** 应用环境（时间、工序、工位等）
+  
  其中 **测量方案** 规范了 **法**的部分。
  测量任务是测量方案和测量数据的集合。
  一个测量任务中仅包含一个测量方案。
@@ -101,8 +103,17 @@
  测量任务按照 **人、机、料、法、环**五部分组成
  2. 测量任务数据交换格式（XML）
 ```XML
-<TaskStore TaskId="{任务Id}" EmployeeId="{工号}" EmployeeName="操作工姓名" DepName="{部门名称}" PartId="{工件Id}" PartNo="{工件号}" PartName="{工件名称}" SchemaId="{测量方案Id}" WorkDate="{作业日期}" ProcessId="{工序}" Station="{测量工位}" Batch="{批次号}"  CreatedBy="{创建人}" Status="{任务状态}">
-    <MeasuringSchema Name="{测量方案名称}" SchemaId="{测量方案Id}" Summary="{方案摘要/说明}" FeatureCount="{特征点数量}" SamplesCount="{测量点数量}" Units="{测量单位:英寸/厘米...}" CreateDate="{方案创建日期}">
+<TaskStore TaskId="{任务Id}" EmployeeId="{工号}" 
+EmployeeName="操作工姓名" DepName="{部门名称}" 
+PartId="{工件Id}" PartNo="{工件号}" 
+PartName="{工件名称}" SchemaId="{测量方案Id}" 
+WorkDate="{作业日期}" ProcessId="{工序}" 
+Station="{测量工位}" Batch="{批次号}"  
+CreatedBy="{创建人}" Status="{任务状态}">
+    <MeasuringSchema Name="{测量方案名称}" SchemaId="{测量方案Id}" 
+Summary="{方案摘要/说明}" FeatureCount="{特征点数量}" 
+SamplesCount="{测量点数量}" Units="{测量单位:英寸/厘米...}" 
+CreateDate="{方案创建日期}">
         <Tolerance FeatureName="{测量点名称}" OrderNumber="{序号}" RawLSL="{规格下限}" RawUSL="{规格上限}" GageId="{量具Id}" SamplesCount="{采样数:同一位置测量次数}" />
         <Tolerance FeatureName="{测量点名称}" OrderNumber="{序号}" RawLSL="{规格下限}" RawUSL="{规格上限}" GageId="{量具Id}" SamplesCount="{采样数:同一位置测量次数}" />
         <Tolerance FeatureName="{测量点名称}" OrderNumber="{序号}" RawLSL="{规格下限}" RawUSL="{规格上限}" GageId="{量具Id}" SamplesCount="{采样数:同一位置测量次数}" />
