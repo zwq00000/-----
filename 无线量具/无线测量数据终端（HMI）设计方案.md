@@ -101,30 +101,8 @@
 
  1. 测量任务定义
  测量任务按照 **人、机、料、法、环**五部分组成
- - 任务Id 任务Id格式为 *yyyyMMdd{4位序号}*
- - 人
-     - 工号 **EmployeeId**
-     - 操作工姓名 **EmployeeName**
-     - 部门名称 **DepName**
-     
- - 机
-        - 量具Id  **GageId**
-  
- - 料
-     - 工件Id **PartId**
-     - 工件号 **PartNo** 
-     - 工件名称 **PartName**
-     - 图纸编号 **DrawingNo**
-     
- - 法
-        - 测量方案Id **SchemaId**
-        - 测量方案名称 **Name**
-        - 方案摘要/说明 **Summary**
-        - 特征点数量 **FeatureCount**
-        - 测量点总数 **SamplesCount**
-        - 测量单位:英寸/厘米 **Units**
-        - 方案创建日期 **CreateDate**
-  
+ 任务Id 格式为 **yyyyMMdd{4位序号}**
+ 
  2. 测量任务数据交换格式（XML）
  
 ```XML
@@ -149,8 +127,8 @@
 
 样例数据
 ```xml
-<TaskStore TaskId="201403080007" EmployeeId="21" EmployeeName="似露非露" DepName="asd" PartId="2" PartNo="12129" PartName="12912010" SchemaId="102CE1DA-A58B-46F1-97FB-3526DC2F4148" WorkDate="2014-03-08T18:45:47.9489964+08:00" ProcessId="机加工" CreatedBy="系统管理员" Status="Running">
-    <MeasuringSchema Name="新建测量方案" SchemaId="102CE1DA-A58B-46F1-97FB-3526DC2F4148" Summary="" FeatureCount="3" SamplesCount="3" Units="Inch" GageCount="1" CreateDate="2014-02-16T21:22:52.2842224+08:00" PartId="2" PartNo="12129" PartName="12912010" DrawingNo="19souf203" ProcessId="机加工">
+<TaskStore TaskId="201403080007" EmployeeId="21" EmployeeName="似露非露" DepName="asd" PartId="2" PartNo="12129" PartName="12912010" DrawingNo="19souf203" SchemaId="102CE1DA-A58B-46F1-97FB-3526DC2F4148" WorkDate="2014-03-08T18:45:47.9489964+08:00" ProcessId="机加工" CreatedBy="系统管理员" Status="Running">
+    <MeasuringSchema Name="新建测量方案" SchemaId="102CE1DA-A58B-46F1-97FB-3526DC2F4148" Summary="" FeatureCount="3" SamplesCount="3" Units="Inch" GageCount="1" CreateDate="2014-02-16T21:22:52.2842224+08:00" PartId="2"  ProcessId="机加工">
         <Tolerance FeatureName="1#" OrderNumber="1" RawLSL="0" RawUSL="10" GageId="ACDA" SamplesCount="1" />
         <Tolerance FeatureName="2#" OrderNumber="2" RawLSL="0" RawUSL="10" GageId="ACDA" SamplesCount="1" />
         <Tolerance FeatureName="3#" OrderNumber="3" RawLSL="0" RawUSL="10" GageId="ACDA" SamplesCount="1" />
@@ -158,18 +136,21 @@
 </TaskStore>
 ```
 
-文件规格
-
- - 测量任务文件
-  - 任务文件通过U盘或者通过网络下发，用户选择当天的任务，文件名格式为 **{任务Id}.task**.
+###3.3 数据交换文件规格 ###
+ 1. 测量任务文件
+  - 任务文件通过U盘或者通过网络下发
+  - 可以筛选当天的任务
+  - 可以筛选本机任务文件（工序+工位）
+  - 可以不指定工序和工位进行选择
+  - 文件名格式为 **{任务Id}.task**.
   
- - 任务原始记录
+ 2. 任务原始记录
      - 任务原始记录存储格式采用文本格式，每条记录一行。文件名为 **{任务Id}.data**。
      - 文件格式采用文本格式，格式为**{操作时间}\t{原始读数}\n**
      - 任务数据格式样例 
      >"09:21:12\t12.23\n"
 
- - 统计数据格式（**HMI暂不实现**）
+ 3. 统计数据格式（**HMI暂不实现**）
   - 统计数据使用XML格式
 
 
@@ -210,7 +191,7 @@
  - 使用者 **UserOf**
  - 量具电量 **BetteyValue**
  
-- 测量值 **IMeasureData**
+- 测量记录 **IMeasureData**
  - 记录时间 **Time** (记录当时的时间)
  - 测量值 **Value** (数值类型)
  - 读数(原始值) **RawValue**
