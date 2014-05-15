@@ -108,9 +108,12 @@ PartId="{工件Id}" PartNo="{工件号}" PartName="{工件名称}" SchemaId="{�
 WorkDate="{作业日期}" ProcessId="{工序}" Station="{测量工位}" Batch="{批次号}"  CreatedBy="{创建人}" Status="{任务状态}">
     <MeasuringSchema Name="{测量方案名称}" SchemaId="{测量方案Id}" Summary="{方案摘要/说明}" FeatureCount="{特征点数量}" 
 SamplesCount="{测量点数量}" Units="{测量单位:英寸/厘米...}" CreateDate="{方案创建日期}">
-        <Tolerance FeatureName="{测量点名称}" OrderNumber="{序号}" RawLSL="{规格下限}" RawUSL="{规格上限}" GageId="{量具Id}" SamplesCount="{采样数:同一位置测量次数}" />
-        <Tolerance FeatureName="{测量点名称}" OrderNumber="{序号}" RawLSL="{规格下限}" RawUSL="{规格上限}" GageId="{量具Id}" SamplesCount="{采样数:同一位置测量次数}" />
-        <Tolerance FeatureName="{测量点名称}" OrderNumber="{序号}" RawLSL="{规格下限}" RawUSL="{规格上限}" GageId="{量具Id}" SamplesCount="{采样数:同一位置测量次数}" />
+        <Tolerance FeatureName="{测量点名称}" OrderNumber="{序号}" RawLSL="{规格下限}" 
+RawUSL="{规格上限}" GageId="{量具Id}" SamplesCount="{采样数:同一位置测量次数}" />
+        <Tolerance FeatureName="{测量点名称}" OrderNumber="{序号}" RawLSL="{规格下限}" 
+RawUSL="{规格上限}" GageId="{量具Id}" SamplesCount="{采样数:同一位置测量次数}" />
+        <Tolerance FeatureName="{测量点名称}" OrderNumber="{序号}" RawLSL="{规格下限}" 
+RawUSL="{规格上限}" GageId="{量具Id}" SamplesCount="{采样数:同一位置测量次数}" />
     </MeasuringSchema>
 </TaskStore>
 ```
